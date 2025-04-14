@@ -1,8 +1,5 @@
-jinja2
-requests
-fastapi
-uvicorn
 Flask
+flask-cors
+requests
 requests[socks]
 stem
-flask-cors
