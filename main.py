@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 from flask_cors import CORS
 import subprocess
 
@@ -53,7 +53,7 @@ def get_playlist_data():
         return jsonify({'message': 'POST request received', 'data': data}), 200
 
 
-from flask import redirect, url_for
+#  url_for
 
 @app.route('/search', methods=['GET'])
 def search_redirect():
