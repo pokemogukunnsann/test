@@ -1,11 +1,17 @@
-from flask import Flask, jsonify, request, redirect
+from flask import Flask, jsonify, request, redirect, send_from_directory
 from flask_cors import CORS
 import subprocess
+import os
 
 app = Flask(__name__)
 
 # CORSを設定（すべてのオリジン、GETとPOSTメソッドを許可）
 CORS(app, origins='*', methods=['GET', 'POST'])
+
+# index.htmlをstaticディレクトリから返す設定
+@app.route('/')
+def serve_index():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'index.html')
 
 # nanikaは省略可能にする（<nanika>はデフォルト値'videos'を使用）
 @app.route('/channel/<channelid>/', defaults={'nanika': 'videos'}, methods=['GET', 'POST'])
