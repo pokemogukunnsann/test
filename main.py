@@ -53,11 +53,26 @@ def get_playlist_data():
         return jsonify({'message': 'POST request received', 'data': data}), 200
 
 
-#@app.route('/search', methods=['GET', 'POST'])
-#ここにhttps://pokemogukunnsann.github.io/v/search?q=検索ワード にリダイレクトするコード入れる…
-#@app.route('/watch', methods=['GET', 'POST'])
-#ここにhttps://pokemogukunnsann.github.io/v/watch?q=videoid にリダイレクトするコード入れる…
+from flask import redirect, url_for
 
+@app.route('/search', methods=['GET'])
+def search_redirect():
+    search_query = request.args.get('q')
+    if search_query:
+        # https://pokemogukunnsann.github.io/v/search?q=検索ワード にリダイレクト
+        return redirect(f'https://pokemogukunnsann.github.io/v/search?q={search_query}')
+    else:
+        return jsonify({'error': 'Search query is required'}), 400
+
+
+@app.route('/watch', methods=['GET'])
+def watch_redirect():
+    video_id = request.args.get('q')
+    if video_id:
+        # https://pokemogukunnsann.github.io/v/watch?q=videoid にリダイレクト
+        return redirect(f'https://pokemogukunnsann.github.io/v/watch?q={video_id}')
+    else:
+        return jsonify({'error': 'Video ID is required'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
