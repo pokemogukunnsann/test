@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: web-shooter
+    name: python-practice
     env: python
     region: Oregon
     plan: free
