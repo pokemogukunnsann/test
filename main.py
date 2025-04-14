@@ -54,7 +54,9 @@ def get_playlist_data():
 
 
 #@app.route('/search', methods=['GET', 'POST'])
-
+#ここにhttps://pokemogukunnsann.github.io/v/search?q=検索ワード にリダイレクトするコード入れる…
+#@app.route('/watch', methods=['GET', 'POST'])
+#ここにhttps://pokemogukunnsann.github.io/v/watch?q=videoid にリダイレクトするコード入れる…
 
 
 if __name__ == '__main__':
