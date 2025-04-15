@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# CORSを設定（すべてのオリジン、GETとPOSTメソッドを許可）
+# CORSを設定（すべてのオリジン、GETとPOSTメソッドを許可）.
 CORS(app, origins='*', methods=['GET', 'POST'])
 
 # index.htmlをstaticディレクトリから返す設定
