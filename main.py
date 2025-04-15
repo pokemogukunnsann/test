@@ -73,7 +73,7 @@ def search_redirect():
 
 @app.route('/watch', methods=['GET'])
 def watch_redirect():
-    video_id = request.args.get('q')
+    video_id = request.args.get('v')
     if video_id:
         # https://pokemogukunnsann.github.io/v/watch?q=videoid にリダイレクト
         return redirect(f'https://pokemogukunnsann.github.io/v/watch?q={video_id}')
