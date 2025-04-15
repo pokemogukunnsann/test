@@ -13,6 +13,10 @@ CORS(app, origins='*', methods=['GET', 'POST'])
 def serve_index():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'index.html')
 
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+
 # nanikaは省略可能にする（<nanika>はデフォルト値'videos'を使用）
 @app.route('/channel/<channelid>/', defaults={'nanika': 'videos'}, methods=['GET', 'POST'])
 @app.route('/channel/<channelid>/<nanika>', methods=['GET', 'POST'])
